@@ -1,6 +1,11 @@
+# This script is licensed under a GNU GPLv3 license. If you would like to help us make
+# it better, *please* do. You can fork the project on github
+# (github.com/mcoia/summon-output) or just submit a patch (mcoia@umsystem.edu)
+
 # This script is intended for technical staff. If you require assistance getting up and
-# running with this, MCO can help you *for a fee*. This is a general description and 
-# basic instructions for the use of the script. 
+# running with this, MCO can help you *for a fee*. If you are a programmer and want
+# to help us improve the script, well, one good turn... This is a general description and 
+# basic instructions for the use of the script.
 
 The script requires perl, the Expect module of perl, and the Date::Manip module of perl to run.  It also requires the server to be able to SSH to the Millennium server.  The script assumes that initial contact to the Millennium server has been made from the server running the script and that the servers fingerprint has been added to the list of known hosts. 
  
