@@ -1,0 +1,30 @@
+# This script is intended for technical staff. If you require assistance getting up and
+# running with this, MCO can help you *for a fee*. This is a general description and 
+# basic instructions for the use of the script. 
+
+The script requires perl, the Expect module of perl, and the Date::Manip module of perl to run.  It also requires the server to be able to SSH to the Millennium server.  The script assumes that initial contact to the Millennium server has been made from the server running the script and that the servers fingerprint has been added to the list of known hosts. 
+ 
+MCO will need to configure the the character based interface to accept SSH sessions from the server running the script, so please contact MCO with the IP of the server that will run the script so we may add it.  We also need to set it so that the initials we use do not own the review file you will be using, so that the initials your institution uses can own the file.
+ 
+ 
+Variables to change before running the script:
+ 
+Under “my %credentials”
+	1. Uncomment (remove the “#” from the beginning of the line) the line for your institution
+	2. Replace <IP> with the IP of the Millennium server (be sure to remove the <> but leave the tick “ ‘ “ marks)
+	3. Replace <LoginPswd> with the password for the login (be sure to remove the <> but leave the tick “ ‘ “ marks)
+	4. Replace <Initials> with the initials for the Millennium server (be sure to remove the <> but leave the tick “ ‘ “ marks)
+	5. Replace <InitPswd> with the password for the initials (be sure to remove the <> but leave the tick “ ‘ “ marks)
+ 
+Under "other variables""
+	1. Replace <Login> with the login to be used (be sure to remove the <> but leave the quotation marks)
+ 
+ 
+Note on login and initials:
+	1. The login should be set to log into the character based interface.
+	2. The initials need the following authorizations
+		a. Create lists of records (18)
+		b. Read/write MARC records (24)
+		c. View bibliographic records (101)
+		d. View item records (121)
+		e. Create Lists Limited (640)
