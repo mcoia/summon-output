@@ -9,7 +9,7 @@
 #The scripts logs onto the server and creates the list of
 #records.  It then creates a file of those records that is
 #manually ftp'ed off of the system and sent to the vendor.
-#This script was written by the MOBIUS Consortium Office.
+#This script was written by MCO.
 #Original Date November 2, 2009
 #Last revised March 25, 2010
 
@@ -23,7 +23,6 @@ my %credentials = (
 #    UMCcan => ['<IP>', '<LoginPswd>', '<Initials>', '<InitPswd>', '228', 'CANCELS_UMC', ], 
 #    UMKCcan => ['<IP>', '<LoginPswd>', '<Initials>', '<InitPswd>', '227', 'CANCELS_UMKC', ],
 #    MSTcan => ['<IP>', '<LoginPswd>', '<Initials>', '<InitPswd>', '226', 'CANCELS_MST', ],
-#    UCMcan => ['<IP>', '<LoginPswd>', '<Initials>', '<InitPswd>', '76', 'CANCELS_UCM', ],
 );
 
 
@@ -1230,92 +1229,6 @@ elsif ($site eq "MSTcan") {
 	print $h "=";
 	$match = $h->expect($timeout,"BCODE3 =");
 	print $h "n";
-	}
-
-elsif ($site eq "UCMcan") {
-	#Location = ckw
-	$match = $h->expect($timeout,"Enter code in front of desired field");
-	print $h "03";
-	$match = $h->expect($timeout,"Enter boolean condition");
-	print $h "=";
-	$match = $h->expect($timeout,"LOCATION");
-	print $h "ckw\r";
-	
-	#AND
-	$match = $h->expect($timeout,"Enter action ( A");
-	print $h "a";
-	
-	#Location all fields do not have ckb
-	$match = $h->expect($timeout,"Enter code in front of desired field");
-	print $h "03";
-	$match = $h->expect($timeout,"Enter boolean condition");
-	print $h "x";
-	$match = $h->expect($timeout,"LOCATION does not have");
-	print $h "ckb\r";
-	$match = $h->expect($timeout,"Choose 1 or 2");
-	print $h "1";
-
-	#AND
-	$match = $h->expect($timeout,"Enter action ( A");
-	print $h "a";
-
-	#Location all fields do not have cku
-	$match = $h->expect($timeout,"Enter code in front of desired field");
-	print $h "03";
-	$match = $h->expect($timeout,"Enter boolean condition");
-	print $h "x";
-	$match = $h->expect($timeout,"LOCATION does not have");
-	print $h "cku\r";
-
-	#AND
-	$match = $h->expect($timeout,"Enter action ( A");
-	print $h "a";
-
-	#Location all fields do not have cky
-	$match = $h->expect($timeout,"Enter code in front of desired field");
-	print $h "03";
-	$match = $h->expect($timeout,"Enter boolean condition");
-	print $h "x";
-	$match = $h->expect($timeout,"LOCATION does not have");
-	print $h "cky\r";
-	
-	#and updated b/t ystrday & today
-	$match = $h->expect($timeout,"Enter action ( A");
-	print $h "a";
-	$match = $h->expect($timeout,"Enter code in front of desired field");
-	print $h "11";
-	$match = $h->expect($timeout,"Enter boolean condition");
-	print $h "w";
-	$match = $h->expect($timeout,"UPDATED between");
-	print $h $startdate;
-	$match = $h->expect($timeout,"&");
-	print $h $today;
-	
-	#and not suppressed (bcode3 != -, a, or z)
-	$match = $h->expect($timeout,"Enter action ( A");
-	print $h "a";
-	$match = $h->expect($timeout,"Enter code in front of desired field");
-	print $h "07";
-	$match = $h->expect($timeout,"Enter boolean condition");
-	print $h "~";
-	$match = $h->expect($timeout,"BCODE3 <>");
-	print $h "-";
-	$match = $h->expect($timeout,"Enter action ( A");
-	print $h "a";
-	$match = $h->expect($timeout,"Enter code in front of desired field");
-	print $h "07";
-	$match = $h->expect($timeout,"Enter boolean condition");
-	print $h "~";
-	$match = $h->expect($timeout,"BCODE3 <>");
-	print $h "a";
-	$match = $h->expect($timeout,"Enter action ( A");
-	print $h "a";
-	$match = $h->expect($timeout,"Enter code in front of desired field");
-	print $h "07";
-	$match = $h->expect($timeout,"Enter boolean condition");
-	print $h "~";
-	$match = $h->expect($timeout,"BCODE3 <>");
-	print $h "z";
 	}
 	
 else {print $h "q";}
