@@ -9,7 +9,7 @@
 #The scripts logs onto the server and creates the list of
 #records.  It then creates a file of those records that is
 #manually ftp'ed off of the system and sent to the vendor.
-#This script was written by MCO.
+#This script was written by the MOBIUS Consortium Office.
 #Original Date November 2, 2009
 #Last revised March 25, 2010
 
