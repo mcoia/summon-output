@@ -96,7 +96,7 @@ print $h "$ipwd\r";
 #Once it finds the file, it will print the list number to open that list.
 #If it doesn't find the file named correctly where expected, then it exits.
 
-my @patterns1 = ("$list > MCO SUMMON DAILY", "Empty");
+my @patterns1 = ("$list > MCO SUMMON DAILY", "$list > Empty");
 until ($match = $h->expect($timeout3, @patterns1)) {
 	$match = $h->expect($timeout3,'-re', 'Choose one \(1-');
 	print $h "f";
